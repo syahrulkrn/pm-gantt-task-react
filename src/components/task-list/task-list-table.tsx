@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import styles from "./task-list-table.module.css";
 import { Task } from "../../types/public-types";
 
-const localeDateStringCache = {};
+const localeDateStringCache: any = {};
 const toLocaleDateStringFactory =
   (locale: string) =>
   (date: Date, dateTimeOptions: Intl.DateTimeFormatOptions) => {
@@ -31,6 +31,7 @@ export const TaskListTableDefault: React.FC<{
   selectedTaskId: string;
   setSelectedTask: (taskId: string) => void;
   onExpanderClick: (task: Task) => void;
+  expanderMargin: number;
 }> = ({
   rowHeight,
   rowWidth,
@@ -39,6 +40,7 @@ export const TaskListTableDefault: React.FC<{
   fontSize,
   locale,
   onExpanderClick,
+  expanderMargin,
 }) => {
   const toLocaleDateString = useMemo(
     () => toLocaleDateStringFactory(locale),
@@ -82,6 +84,9 @@ export const TaskListTableDefault: React.FC<{
                       ? styles.taskListExpander
                       : styles.taskListEmptyExpander
                   }
+                  style={{
+                    marginLeft: expanderMargin,
+                  }}
                   onClick={() => onExpanderClick(t)}
                 >
                   {expanderSymbol}

@@ -68,7 +68,9 @@ export const TaskGanttContent: React.FC<TaskGanttContentProps> = ({
       dates[0].getTime() -
       dates[1].getTimezoneOffset() * 60 * 1000 +
       dates[0].getTimezoneOffset() * 60 * 1000;
+
     const newXStep = (timeStep * columnWidth) / dateDelta;
+
     setXStep(newXStep);
   }, [columnWidth, dates, timeStep]);
 

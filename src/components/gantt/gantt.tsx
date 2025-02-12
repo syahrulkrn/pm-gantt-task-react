@@ -54,6 +54,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   fontSize = "14px",
   arrowIndent = 20,
   todayColor = "rgba(252, 248, 227, 0.5)",
+  expanderMargin = 0,
   viewDate,
   TooltipContent = StandardTooltipContent,
   TaskListHeader = TaskListHeaderDefault,
@@ -448,6 +449,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     onExpanderClick: handleExpanderClick,
     TaskListHeader,
     TaskListTable,
+    expanderMargin,
   };
   return (
     <div>

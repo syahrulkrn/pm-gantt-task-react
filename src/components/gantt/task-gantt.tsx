@@ -51,6 +51,7 @@ export const TaskGantt: React.FC<TaskGanttProps> = ({
       >
         <Calendar {...calendarProps} />
       </svg>
+
       <div
         ref={horizontalContainerRef}
         className={styles.horizontalContainer}
