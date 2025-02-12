@@ -87,7 +87,6 @@ const App = () => {
         onExpanderClick={handleExpanderClick}
         listCellWidth={isChecked ? "155px" : ""}
         columnWidth={columnWidth}
-        expanderMargin={100}
       />
     </div>
   );

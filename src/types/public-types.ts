@@ -113,6 +113,7 @@ export interface StylingOption {
   arrowColor?: string;
   arrowIndent?: number;
   todayColor?: string;
+  expanderMargin?: number;
   TooltipContent?: React.FC<{
     task: Task;
     fontSize: string;
@@ -137,10 +138,10 @@ export interface StylingOption {
      */
     setSelectedTask: (taskId: string) => void;
     onExpanderClick: (task: Task) => void;
+    expanderMargin: number;
   }>;
 }
 
 export interface GanttProps extends EventOption, DisplayOption, StylingOption {
   tasks: Task[];
-  expanderMargin: number;
 }
