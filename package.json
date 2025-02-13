@@ -1,6 +1,6 @@
 {
   "name": "pm-gantt-task-react",
-  "version": "0.7.18",
+  "version": "0.7.19",
   "description": "Interactive Gantt Chart for React with TypeScript.",
   "author": "syahrulkrn <syahrulbelfort@gmail.com>",
   "homepage": "https://github.com/MaTeMaTuK/gantt-task-react",
