@@ -17,7 +17,6 @@ export type TaskListProps = {
   selectedTask: BarTask | undefined;
   setSelectedTask: (task: string) => void;
   onExpanderClick: (task: Task) => void;
-  expanderMargin: number; // ✅ Add expanderMargin
   TaskListHeader: React.FC<{
     headerHeight: number;
     rowWidth: string;
@@ -34,7 +33,6 @@ export type TaskListProps = {
     selectedTaskId: string;
     setSelectedTask: (taskId: string) => void;
     onExpanderClick: (task: Task) => void;
-    expanderMargin: number;
   }>;
 };
 
@@ -55,7 +53,6 @@ export const TaskList: React.FC<TaskListProps> = ({
   horizontalContainerClass,
   TaskListHeader,
   TaskListTable,
-  expanderMargin,
 }) => {
   const horizontalContainerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -82,7 +79,6 @@ export const TaskList: React.FC<TaskListProps> = ({
     selectedTaskId: selectedTaskId,
     setSelectedTask,
     onExpanderClick,
-    expanderMargin,
     maxWordLength: length,
   };
 
