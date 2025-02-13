@@ -10,7 +10,7 @@ export const Project: React.FC<TaskItemProps> = ({ task, isSelected }) => {
     ? task.styles.progressSelectedColor
     : task.styles.progressColor;
 
-  const projectWith = task.x2;
+  const projectWith = task.x2 - task.x1 + 65;
   const progressWith = (task.progress / 100) * projectWith;
 
   const projectLeftTriangle = [
@@ -30,6 +30,7 @@ export const Project: React.FC<TaskItemProps> = ({ task, isSelected }) => {
     task.x1 + projectWith - 15,
     task.y + task.height / 2 - 1,
   ].join(",");
+
   return (
     <g tabIndex={0} className={styles.projectWrapper}>
       <rect

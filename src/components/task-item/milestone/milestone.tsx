@@ -18,6 +18,7 @@ export const Milestone: React.FC<TaskItemProps> = ({
 
   return (
     <g tabIndex={0} className={styles.milestoneWrapper}>
+      TEEEEST BTC
       <rect
         fill={getBarColor()}
         x={task.x1}
