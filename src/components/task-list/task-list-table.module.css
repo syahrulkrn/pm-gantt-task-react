@@ -36,3 +36,38 @@
   padding-left: 1rem;
   user-select: none;
 }
+.tooltipContainer {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltipContainer::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.tooltipContainer:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+.taskName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  display: inline-block;
+}

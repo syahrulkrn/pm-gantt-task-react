@@ -6,7 +6,10 @@ export const TaskListHeaderDefault: React.FC<{
   rowWidth: string;
   fontFamily: string;
   fontSize: string;
-}> = ({ headerHeight, fontFamily, fontSize, rowWidth }) => {
+  maxWordLength?: number;
+}> = ({ headerHeight, fontFamily, fontSize, rowWidth, maxWordLength = 0 }) => {
+  const dynamicWidth = `${parseInt(rowWidth) + maxWordLength}px`;
+
   return (
     <div
       className={styles.ganttTable}
@@ -24,7 +27,7 @@ export const TaskListHeaderDefault: React.FC<{
         <div
           className={styles.ganttTable_HeaderItem}
           style={{
-            minWidth: rowWidth,
+            minWidth: dynamicWidth,
           }}
         >
           &nbsp;Name

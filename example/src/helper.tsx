@@ -43,7 +43,7 @@ export function initTasks() {
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 4),
       end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 8, 0, 0),
-      name: "Discussion with team",
+      name: "Discussion with team Rezha and Puji in the sky nutech rangers",
       id: "Task 2",
       progress: 10,
       dependencies: ["Task 1"],

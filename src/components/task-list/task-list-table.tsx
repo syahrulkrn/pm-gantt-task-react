@@ -14,6 +14,7 @@ const toLocaleDateStringFactory =
     }
     return lds;
   };
+
 const dateTimeOptions: Intl.DateTimeFormatOptions = {
   weekday: "short",
   year: "numeric",
@@ -32,6 +33,7 @@ export const TaskListTableDefault: React.FC<{
   setSelectedTask: (taskId: string) => void;
   onExpanderClick: (task: Task) => void;
   expanderMargin: number;
+  maxWordLength?: number;
 }> = ({
   rowHeight,
   rowWidth,
@@ -41,20 +43,17 @@ export const TaskListTableDefault: React.FC<{
   locale,
   onExpanderClick,
   expanderMargin,
+  maxWordLength = 20,
 }) => {
+  const dynamicWidth = `${parseInt(rowWidth) + maxWordLength}px`;
+
   const toLocaleDateString = useMemo(
     () => toLocaleDateStringFactory(locale),
     [locale]
   );
 
   return (
-    <div
-      className={styles.taskListWrapper}
-      style={{
-        fontFamily: fontFamily,
-        fontSize: fontSize,
-      }}
-    >
+    <div className={styles.taskListWrapper} style={{ fontFamily, fontSize }}>
       {tasks.map(t => {
         let expanderSymbol = "";
         if (t.hideChildren === false) {
@@ -71,10 +70,7 @@ export const TaskListTableDefault: React.FC<{
           >
             <div
               className={styles.taskListCell}
-              style={{
-                minWidth: rowWidth,
-                maxWidth: rowWidth,
-              }}
+              style={{ minWidth: dynamicWidth  }}
               title={t.name}
             >
               <div className={styles.taskListNameWrapper}>
@@ -84,31 +80,25 @@ export const TaskListTableDefault: React.FC<{
                       ? styles.taskListExpander
                       : styles.taskListEmptyExpander
                   }
-                  style={{
-                    marginLeft: expanderMargin,
-                  }}
+                  style={{ marginLeft: expanderMargin }}
                   onClick={() => onExpanderClick(t)}
                 >
                   {expanderSymbol}
                 </div>
-                <div>{t.name}</div>
+                <div className={styles.tooltipContainer}>
+                  <span className={styles.taskName}>{t.name}</span>
+                </div>
               </div>
             </div>
             <div
               className={styles.taskListCell}
-              style={{
-                minWidth: rowWidth,
-                maxWidth: rowWidth,
-              }}
+              style={{ minWidth: rowWidth, maxWidth: rowWidth }}
             >
               &nbsp;{toLocaleDateString(t.start, dateTimeOptions)}
             </div>
             <div
               className={styles.taskListCell}
-              style={{
-                minWidth: rowWidth,
-                maxWidth: rowWidth,
-              }}
+              style={{ minWidth: rowWidth, maxWidth: rowWidth }}
             >
               &nbsp;{toLocaleDateString(t.end, dateTimeOptions)}
             </div>

@@ -34,7 +34,7 @@ export type TaskListProps = {
     selectedTaskId: string;
     setSelectedTask: (taskId: string) => void;
     onExpanderClick: (task: Task) => void;
-    expanderMargin: number; // ✅ Ensure expanderMargin is passed
+    expanderMargin: number;
   }>;
 };
 
@@ -69,6 +69,7 @@ export const TaskList: React.FC<TaskListProps> = ({
     fontFamily,
     fontSize,
     rowWidth,
+    maxWordLength: length,
   };
   const selectedTaskId = selectedTask ? selectedTask.id : "";
   const tableProps = {
@@ -82,6 +83,7 @@ export const TaskList: React.FC<TaskListProps> = ({
     setSelectedTask,
     onExpanderClick,
     expanderMargin,
+    maxWordLength: length,
   };
 
   return (
