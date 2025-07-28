@@ -2,24 +2,32 @@ import { Task } from "../../dist/types/public-types";
 
 export function initTasks() {
   const currentDate = new Date();
-  const tasks: Task[] = [
+
+  const tasks: any = [
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1),
       end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 15),
       name: "Some Project",
       id: "ProjectSample",
-      progress: 25,
+      progress: 100,
       type: "project",
+
       hideChildren: false,
       displayOrder: 1,
     },
     {
       start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1),
-      end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 3),
+      end: new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        2,
+        12,
+        28
+      ),
       name: "Idea",
       id: "Task 0",
-      progress: 0,
-      type: "project",
+      progress: 100,
+      type: "task",
       project: "ProjectSample",
       displayOrder: 2,
     },
@@ -29,6 +37,7 @@ export function initTasks() {
       name: "Research",
       id: "Task 1",
       progress: 25,
+      dependencies: ["Task 0"],
       type: "task",
       project: "ProjectSample",
       displayOrder: 3,
@@ -39,6 +48,7 @@ export function initTasks() {
       name: "Discussion with team Rezha and Puji in the sky nutech rangers",
       id: "Task 2",
       progress: 10,
+      dependencies: ["Task 1"],
       type: "task",
       project: "ProjectSample",
       displayOrder: 4,
@@ -49,6 +59,7 @@ export function initTasks() {
       name: "Developing",
       id: "Task 3",
       progress: 2,
+      dependencies: ["Task 2"],
       type: "task",
       project: "ProjectSample",
       displayOrder: 5,
@@ -60,6 +71,7 @@ export function initTasks() {
       id: "Task 4",
       type: "task",
       progress: 70,
+      dependencies: ["Task 2"],
       project: "ProjectSample",
       displayOrder: 6,
     },
@@ -69,7 +81,8 @@ export function initTasks() {
       name: "Release",
       id: "Task 6",
       progress: currentDate.getMonth(),
-      type: "task",
+      type: "milestone",
+      dependencies: ["Task 4"],
       project: "ProjectSample",
       displayOrder: 7,
     },
@@ -83,6 +96,7 @@ export function initTasks() {
       type: "task",
     },
   ];
+
   return tasks;
 }
 

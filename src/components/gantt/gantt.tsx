@@ -37,7 +37,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   barFill = 60,
   barCornerRadius = 3,
   barProgressColor = "#a3a3ff",
-  expanderMargin = 0,
+  expanderMargin,
   barProgressSelectedColor = "#8282f5",
   barBackgroundColor = "#b8c2cc",
   barBackgroundSelectedColor = "#aeb8c2",
@@ -166,6 +166,8 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     scrollX,
     onExpanderClick,
   ]);
+
+  console.log("expanderMargin Gantt", expanderMargin);
 
   useEffect(() => {
     if (
@@ -369,8 +371,8 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
    * Task select event
    */
   const handleSelectedTask = (taskId: string) => {
-    const newSelectedTask = barTasks.find(t => t.id === taskId);
-    const oldSelectedTask = barTasks.find(
+    const newSelectedTask: any = barTasks.find(t => t.id === taskId);
+    const oldSelectedTask: any = barTasks.find(
       t => !!selectedTask && t.id === selectedTask.id
     );
     if (onSelect) {

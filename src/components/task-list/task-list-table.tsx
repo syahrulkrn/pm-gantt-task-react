@@ -33,6 +33,7 @@ export const TaskListTableDefault: React.FC<{
   setSelectedTask: (taskId: string) => void;
   onExpanderClick: (task: Task) => void;
   maxWordLength?: number;
+  expanderMargin?: number;
 }> = ({
   rowHeight,
   rowWidth,
@@ -42,6 +43,7 @@ export const TaskListTableDefault: React.FC<{
   locale,
   onExpanderClick,
   maxWordLength = 20,
+  expanderMargin,
 }) => {
   const dynamicWidth = `${parseInt(rowWidth) + maxWordLength}px`;
 
@@ -78,7 +80,7 @@ export const TaskListTableDefault: React.FC<{
                       ? styles.taskListExpander
                       : styles.taskListEmptyExpander
                   }
-                  style={{ marginLeft: t.styles?.expanderMargin }}
+                  style={{ marginLeft: expanderMargin }}
                   onClick={() => onExpanderClick(t)}
                 >
                   {expanderSymbol}

@@ -134,8 +134,7 @@ export const StandardTooltipContent: React.FC<{
         <p className={styles.tooltipDefaultContainerParagraph}>
           {`Duration: ${~~(
             (task.end.getTime() - task.start.getTime()) /
-              (1000 * 60 * 60 * 24) +
-            1
+            (1000 * 60 * 60 * 24)
           )} day(s)`}
         </p>
       )}

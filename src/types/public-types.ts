@@ -139,7 +139,7 @@ export interface StylingOption {
      */
     setSelectedTask: (taskId: string) => void;
     onExpanderClick: (task: Task) => void;
-    expanderMargin: number;
+    expanderMargin?: number;
   }>;
 }
 
